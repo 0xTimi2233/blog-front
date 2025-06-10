@@ -197,7 +197,7 @@ CSS Grid 是现代 Web 开发的必备技能。它与 Flexbox 并非替代关系
     slug: 'react-hooks-deep-dive',
     title: '深入理解 React Hooks：useState, useEffect 和自定义 Hooks',
     summary: 'React Hooks 是自 React 16.8 以来最激动人心的特性。它让我们可以在不编写 class 的情况下使用 state 以及其他的 React 特性。本文将带你深入理解最常用的 Hooks，并教你如何创建自己的自定义 Hooks。',
-    imageUrl: `https://res.cloudinary.com/demo/image/upload/${CLOUDINARY_TRANSFORM}/city_aerial.jpg`,
+    imageUrl: `https://res.cloudinary.com/demo/image/upload/${CLOUDINARY_TRANSFORM}/sample.jpg`,
     tags: ['React', 'Hooks', 'JavaScript'],
     publishedAt: new Date('2024-06-20T00:00:00.000Z').toISOString(),
     readingTime: 18,

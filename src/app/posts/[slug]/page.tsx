@@ -89,8 +89,11 @@ export default async function PostPage({ params }: PostPageProps) {
   });
 
   return (
-    <article className="prose dark:prose-invert max-w-none">
-      {/* 文章头部 */}
+    // 【核心改动】我们将 <article> 分为两个主要部分：
+    // 1. 文章元数据和封面图（不受 prose 影响）
+    // 2. 文章内容（受 prose 影响）
+    <article className="max-w-none">
+      {/* 文章头部元数据 */}
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">{post.title}</h1>
         <div className="mt-4 flex justify-center flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
@@ -110,25 +113,26 @@ export default async function PostPage({ params }: PostPageProps) {
         </div>
       </div>
 
-      {/* 
-        【核心改动】
-        文章封面图容器。
-        同样为图片容器添加背景色 `bg-muted` 作为占位符。
-      */}
+      {/* 文章封面图 */}
       <div className="relative mb-8 h-64 md:h-96 w-full overflow-hidden rounded-lg bg-muted">
         <Image
           src={post.imageUrl}
           alt={post.title}
           fill
           className="object-cover"
-          // 这里我们保持 priority，因为它是页面的 LCP 元素，我们希望它尽快加载。
           priority
           sizes="(max-width: 768px) 100vw, 800px"
         />
       </div>
 
-      {/* 渲染编译后的 MDX 内容 */}
-      {content}
+      {/* 
+        【核心改动】
+        文章正文内容容器。
+        我们在这里才应用 prose 类，确保它只作用于由 MDX 生成的内容。
+      */}
+      <div className="prose dark:prose-invert max-w-none">
+        {content}
+      </div>
     </article>
   );
 }
