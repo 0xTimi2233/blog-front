@@ -1,14 +1,16 @@
 # 1、创建项目
-``` bash
+
+```bash
  pnpm create next-app@14 blog-front --typescript --eslint --tailwind --src-dir --app --import-alias "@/*"
 ```
 
 # 2、安装依赖
-``` bash
+
+```bash
  pnpm dlx shadcn@latest init
 ```
 
-``` text
+```text
 sony@sonydeMBP blog-front % pnpm dlx shadcn@latest init
 ✔ Preflight checks.
 ✔ Verifying framework. Found Next.js.
@@ -28,13 +30,13 @@ Success! Project initialization completed.
 You may now add components.
 ```
 
-``` bash
+```bash
  pnpm add framer-motion next-mdx-remote shiki remark-gfm rehype-slug next-themes
 ```
 
 提示
 
-``` text
+```text
 ╭ Warning ───────────────────────────────────────────────────────────────────────────────────╮
 │                                                                                            │
 │   Ignored build scripts: unrs-resolver.                                                    │
@@ -43,7 +45,7 @@ You may now add components.
 ╰────────────────────────────────────────────────────────────────────────────────────────────╯
 ```
 
-``` bash
+```bash
  pnpm approve-builds
 ```
 
@@ -55,39 +57,45 @@ All packages were added to ignoredBuiltDependencies.
 
 依赖文件
 
-``` json
+```json
 {
-    "dependencies": {
-        "class-variance-authority": "^0.7.1",
-        "clsx": "^2.1.1",
-        "framer-motion": "^12.16.0",
-        "lucide-react": "^0.513.0",
-        "next": "14.2.29",
-        "next-mdx-remote": "^5.0.0",
-        "next-themes": "^0.4.6",
-        "react": "^18",
-        "react-dom": "^18",
-        "rehype-slug": "^6.0.0",
-        "remark-gfm": "^4.0.1",
-        "shiki": "^3.6.0",
-        "tailwind-merge": "^3.3.0",
-        "tailwindcss-animate": "^1.0.7"
-    },
-    "devDependencies": {
-        "@types/node": "^20",
-        "@types/react": "^18",
-        "@types/react-dom": "^18",
-        "eslint": "^8",
-        "eslint-config-next": "14.2.29",
-        "postcss": "^8",
-        "tailwindcss": "^3.4.1",
-        "typescript": "^5"
-    }
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.16.0",
+    "lucide-react": "^0.513.0",
+    "next": "14.2.29",
+    "next-mdx-remote": "^5.0.0",
+    "next-themes": "^0.4.6",
+    "react": "^18",
+    "react-dom": "^18",
+    "rehype-slug": "^6.0.0",
+    "remark-gfm": "^4.0.1",
+    "shiki": "^3.6.0",
+    "tailwind-merge": "^3.3.0",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.29",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
 }
 ```
 
 创建文件夹
 
-``` bash
+```bash
  mkdir -p src/components/ui src/components/custom src/lib src/app/api
+```
+
+增加代码格式化
+
+```bash
+ pnpm add -D prettier
 ```
