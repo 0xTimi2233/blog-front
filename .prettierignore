@@ -4,3 +4,4 @@ node_modules
 build
 dist
 /src/lib/mock-data.ts
+pnpm-lock.yaml
