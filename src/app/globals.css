@@ -74,3 +74,22 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  /* 为 Shiki 生成的代码块容器提供样式 */
+  pre {
+    @apply bg-muted text-muted-foreground p-4 rounded-lg overflow-x-auto;
+    /*
+          - bg-muted: 使用 shadcn/ui 定义的柔和背景色。
+          - text-muted-foreground: 使用柔和的前景色。
+          - p-4: 添加内边距。
+          - rounded-lg: 添加圆角。
+          - overflow-x-auto: 当代码行太长时，允许水平滚动。
+        */
+  }
+
+  /* 移除 Shiki 默认给 pre 标签添加的背景色，由我们自己的 Tailwind 类控制 */
+  pre code {
+    background-color: transparent !important;
+  }
+}

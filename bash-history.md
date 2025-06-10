@@ -99,3 +99,17 @@ All packages were added to ignoredBuiltDependencies.
 ```bash
  pnpm add -D prettier
 ```
+
+新增依赖
+
+```bash
+ pnpm dlx shadcn@latest add button dropdown-menu badge
+```
+
+```bash
+ pnpm add @shikijs/rehype
+```
+
+```bash
+ pnpm add -D @tailwindcss/typography
+```

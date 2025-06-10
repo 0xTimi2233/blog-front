@@ -1,19 +1,23 @@
 /**
  * @file 提供整个应用的模拟博客文章数据。
- * 在没有真实后端的情况下，这里是所有内容的来源。
- * 数据已扩充，以更好地测试布局和组件。
+ * 使用 Cloudinary 提供真正的渐进式 JPEG (Progressive JPEG) 图片，
+ * 以便在慢速网络下演示从模糊到清晰的加载效果。
  */
 
 import { PostDetail } from './types';
+
+// Cloudinary 的 URL 参数 `fl_progressive,w_1280,h_720,c_fill` 意味着：
+// fl_progressive: 使用渐进式 JPEG 格式
+// w_1280, h_720: 图像尺寸
+// c_fill: 填充并裁剪以适应尺寸
+const CLOUDINARY_TRANSFORM = 'fl_progressive,w_1280,h_720,c_fill';
 
 export const MOCK_POSTS: PostDetail[] = [
   {
     slug: '2024-remote-work-freedom',
     title: '2024・应届牛马到远程自由',
-    summary:
-      '面临着最后半年的大学生涯，与大多数大学生不同，我无时不在期盼着毕业这天的到来。步入职场进入了一家 AI 初创公司开始了“牛马”生活。最终我选择在国庆前提桶跑路，回到老家开始黑奴 play，却未曾料到，一份远程工作机会和一位新伙伴悄然而至...',
-    imageUrl:
-      'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2874&auto=format&fit=crop',
+    summary: '面临着最后半年的大学生涯，与大多数大学生不同，我无时不在期盼着毕业这天的到来。步入职场进入了一家 AI 初创公司开始了“牛马”生活。最终我选择在国庆前提桶跑路，回到老家开始黑奴 play，却未曾料到，一份远程工作机会和一位新伙伴悄然而至...',
+    imageUrl: `https://res.cloudinary.com/demo/image/upload/${CLOUDINARY_TRANSFORM}/sample.jpg`,
     tags: ['年终总结', '工作', '远程'],
     publishedAt: new Date('2024-12-31T00:00:00.000Z').toISOString(),
     readingTime: 12,
@@ -43,7 +47,7 @@ export const MOCK_POSTS: PostDetail[] = [
 下面是一段示例代码，展示了如何在 React 中使用 \`useState\` Hook：
 
 \`\`\`typescript
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Counter() {
   const [count, setCount] = useState(0);
@@ -78,10 +82,8 @@ function Counter() {
   {
     slug: 'nextjs-with-hono',
     title: 'Next.js 使用 Hono 接管 API',
-    summary:
-      '直入正题，Next.js 自带的 API Routes (现已改名为 Route Handlers) 异常难用，例如当你需要编写一个 RESTful API 时，尤为痛苦。Hono 是一个轻量级、高性能的 Web 框架，它的 API 设计优雅，非常适合用来构建 API。',
-    imageUrl:
-      'https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=2940&auto=format&fit=crop',
+    summary: '直入正题，Next.js 自带的 API Routes (现已改名为 Route Handlers) 异常难用，例如当你需要编写一个 RESTful API 时，尤为痛苦。Hono 是一个轻量级、高性能的 Web 框架，它的 API 设计优雅，非常适合用来构建 API。',
+    imageUrl: `https://res.cloudinary.com/demo/image/upload/${CLOUDINARY_TRANSFORM}/woman.jpg`,
     tags: ['Next.js', 'Hono', 'API'],
     publishedAt: new Date('2024-10-02T00:00:00.000Z').toISOString(),
     readingTime: 7,
@@ -138,10 +140,8 @@ export const POST = handle(app)
   {
     slug: 'mastering-css-grid',
     title: '精通 CSS Grid 布局：从入门到实战',
-    summary:
-      'Flexbox 解决了我们过去在 CSS 中遇到的一维布局问题，而 CSS Grid 则为我们带来了真正的二维布局能力。本文将带你深入理解 Grid 布局的核心概念，并通过实例让你彻底掌握它。',
-    imageUrl:
-      'https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=2874&auto=format&fit=crop',
+    summary: 'Flexbox 解决了我们过去在 CSS 中遇到的一维布局问题，而 CSS Grid 则为我们带来了真正的二维布局能力。本文将带你深入理解 Grid 布局的核心概念，并通过实例让你彻底掌握它。',
+    imageUrl: `https://res.cloudinary.com/demo/image/upload/${CLOUDINARY_TRANSFORM}/car.jpg`,
     tags: ['CSS', '前端', '布局'],
     publishedAt: new Date('2024-08-15T00:00:00.000Z').toISOString(),
     readingTime: 15,
@@ -196,10 +196,8 @@ CSS Grid 是现代 Web 开发的必备技能。它与 Flexbox 并非替代关系
   {
     slug: 'react-hooks-deep-dive',
     title: '深入理解 React Hooks：useState, useEffect 和自定义 Hooks',
-    summary:
-      'React Hooks 是自 React 16.8 以来最激动人心的特性。它让我们可以在不编写 class 的情况下使用 state 以及其他的 React 特性。本文将带你深入理解最常用的 Hooks，并教你如何创建自己的自定义 Hooks。',
-    imageUrl:
-      'https://images.unsplash.com/photo-1631624215848-3b701a59630f?q=80&w=2940&auto=format&fit=crop',
+    summary: 'React Hooks 是自 React 16.8 以来最激动人心的特性。它让我们可以在不编写 class 的情况下使用 state 以及其他的 React 特性。本文将带你深入理解最常用的 Hooks，并教你如何创建自己的自定义 Hooks。',
+    imageUrl: `https://res.cloudinary.com/demo/image/upload/${CLOUDINARY_TRANSFORM}/city_aerial.jpg`,
     tags: ['React', 'Hooks', 'JavaScript'],
     publishedAt: new Date('2024-06-20T00:00:00.000Z').toISOString(),
     readingTime: 18,

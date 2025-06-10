@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss';
 import tailwindcssAnimate from 'tailwindcss-animate';
+import tailwindcssTypography from '@tailwindcss/typography';
 
 const config: Config = {
   darkMode: ['class'],
@@ -9,6 +10,13 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    container: {
+      center: true, // 自动添加 margin-left: auto; margin-right: auto;
+      padding: '2rem', // 为容器内容添加内边距
+      screens: {
+        '2xl': '1400px', // 设置容器的最大宽度
+      },
+    },
     extend: {
       fontFamily: {
         sans: ['var(--font-sans)'],
@@ -78,6 +86,6 @@ const config: Config = {
     },
   },
   // 2. 在 plugins 数组中使用导入的变量
-  plugins: [tailwindcssAnimate],
+  plugins: [tailwindcssAnimate, tailwindcssTypography],
 };
 export default config;
